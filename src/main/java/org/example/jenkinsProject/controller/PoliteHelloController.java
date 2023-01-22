@@ -13,8 +13,8 @@ public class PoliteHelloController {
     IWelcomeTextService welcomeTextService;
 
     @Autowired
-    public PoliteHelloController(@Qualifier("welcomeTextDecorator") IWelcomeTextService welcomeTextGenerator) {
-        this.welcomeTextService = welcomeTextGenerator;
+    public PoliteHelloController(@Qualifier("welcomeTextDecorator") IWelcomeTextService decoratedWelcomeTextService) {
+        this.welcomeTextService = decoratedWelcomeTextService;
     }
     @GetMapping("/hello/polite")
     public String greeting(Model viewModel) {

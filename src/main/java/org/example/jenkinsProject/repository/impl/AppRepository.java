@@ -1,7 +1,7 @@
 package org.example.jenkinsProject.repository.impl;
 
 import org.example.jenkinsProject.repository.IAppRepository;
-import org.springframework.context.annotation.Bean;
+import org.example.jenkinsProject.utils.CommonConstants;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,8 +10,10 @@ import java.util.List;
 @Repository
 public class AppRepository implements IAppRepository {
 
+    //  It will be used as list later. Now it can be replaced with String
+
     private final List<String> stringStorage = new ArrayList<String>() {{
-        add("guest");
+        add(CommonConstants.DEFAULT_USER_NAME);
     }};
 
     @Override
