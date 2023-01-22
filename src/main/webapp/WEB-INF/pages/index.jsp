@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-Hello
+<a href="/hello">To hello-feature</a>
 </body>
 </html>

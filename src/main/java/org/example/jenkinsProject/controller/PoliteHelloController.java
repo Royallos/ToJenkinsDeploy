@@ -6,28 +6,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class HelloController {
+public class PoliteHelloController {
 
     IWelcomeTextService welcomeTextService;
 
     @Autowired
-    public HelloController(@Qualifier("welcomeTextServiceImpl") IWelcomeTextService welcomeTextService) {
-        this.welcomeTextService = welcomeTextService;
+    public PoliteHelloController(@Qualifier("welcomeTextDecorator") IWelcomeTextService welcomeTextGenerator) {
+        this.welcomeTextService = welcomeTextGenerator;
     }
-    @GetMapping("/hello")
+    @GetMapping("/hello/polite")
     public String greeting(Model viewModel) {
         viewModel.addAttribute("messageToPrint", welcomeTextService.generateWelcomeMessage().toString());
         return "hello";
-    }
-
-    @PostMapping("/hello")
-    public String setUser(@RequestParam(name = "userName") String userName, Model viewModel) {
-        welcomeTextService.setUsername(userName);
-        return greeting(viewModel);
     }
 }
