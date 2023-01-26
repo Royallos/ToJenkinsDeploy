@@ -18,12 +18,12 @@ public class WelcomeTextServiceImpl implements IWelcomeTextService {
 
     @Override
     public void setUsername(String username) {
-        appRepository.putVal(username);
+        appRepository.save(username);
     }
 
     @Override
     public StringBuilder generateWelcomeMessage() {
         StringBuilder resultMessageBuilder = new StringBuilder(CommonConstants.WELCOME_TEXT);
-        return resultMessageBuilder.append(", ").append(appRepository.getVal());
+        return resultMessageBuilder.append(", ").append(appRepository.get());
     }
 }
