@@ -1,6 +1,6 @@
 package org.example.jenkinsProject.service;
 
 public interface IWelcomeTextService {
-    void setUsername(String username);
+    void addUser(String username);
     StringBuilder generateWelcomeMessage();
 }

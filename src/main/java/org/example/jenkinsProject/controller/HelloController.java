@@ -37,8 +37,8 @@ public class HelloController {
     }
 
     @PostMapping("/hello")
-    public String setUser(@RequestParam(name = "userName") String userName, Model viewModel) {
-        welcomeTextService.setUsername(userName);
+    public String addUser(@RequestParam(name = "userName") String userName, Model viewModel) {
+        welcomeTextService.addUser(userName);
         return greeting(viewModel);
     }
 }
